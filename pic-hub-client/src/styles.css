@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+}
+
+:root {
+    --primary: #9B7FB1;
+    --primary-light: #C5B4D1;
+    --primary-dark: #805A9B;
+}

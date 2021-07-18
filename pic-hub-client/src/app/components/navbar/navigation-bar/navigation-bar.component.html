@@ -1,0 +1,10 @@
+<header>
+    <div class="navbar">
+        <img src="../../../../assets/images/logo.png" height="38"/>
+        <div class="navbar-spacer"></div>
+        <fa-icon class="navbar-nav" [icon]="userIcon" (click)="toggleUserMenu()"></fa-icon>
+        <fa-icon class="navbar-nav" [icon]="barsIcon" (click)="toggleBurgerMenu()"></fa-icon>
+    </div>
+    <app-menu class='navbar-list' [ngClass]="{'closed': !isUserMenuOpen}" [menuLinks]="userMenuLinks"></app-menu>
+    <app-menu class='navbar-list' [ngClass]="{'closed': !isBurgerMenuOpen}" [menuLinks]="burgerMenuLinks"></app-menu>
+</header>

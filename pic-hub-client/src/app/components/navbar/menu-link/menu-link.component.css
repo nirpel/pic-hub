@@ -1,0 +1,15 @@
+.menu-link {
+    height: auto;
+    width: 200px;
+    background-color: var(--primary-light);
+    border: 1px solid var(--primary);
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-link:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
