@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./upload-view.component.css']
 })
 export class UploadViewComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {

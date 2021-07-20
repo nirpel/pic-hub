@@ -1,0 +1,21 @@
+<div *ngIf="cameraService.isCameraExist; else noCameraExist">
+    <div style="text-align:center">
+        <div class="btn-group">
+            <button class="button" (click)="cameraService.takeSnapshot()" *ngIf="!cameraService.webcamImage; else takeNew">Take Picture</button>
+            <button class="button" (click)="takeNewPicture()" *ngIf="cameraService.webcamImage">Try Again</button>
+        </div> <br />
+        <webcam [height]="500" [width]="1000" [trigger]="cameraService.triggerObservable" (imageCapture)="handleImage($event)" *ngIf="cameraService.showWebcam"></webcam>
+        <img [src]="cameraService.webcamImage.imageAsDataUrl" [height]="500" *ngIf="!cameraService.showWebcam && cameraService.webcamImage" />
+    </div>
+
+    <div *ngIf="cameraService.errors.length > 0">
+        <h4>Error Messages:</h4>
+        <ul *ngFor="let error of cameraService.errors">
+            <li>{{ error | json }}</li>
+        </ul>
+    </div>
+</div>
+
+<ng-template #noCameraExist>
+    Camera device not available
+</ng-template>

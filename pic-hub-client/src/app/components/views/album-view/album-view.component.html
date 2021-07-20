@@ -1,0 +1,15 @@
+<div>
+    <div>
+        <input type="text" placeholder="Image's Title (or part of it..)" />
+        <button>Search by Title</button>
+    </div>
+    <div>
+        <input type="text" placeholder="Category..." />
+        <button>Search by Category</button>
+    </div>
+
+    <app-album-grid *ngIf="albumService.viewDisplay === albumService.grid; else albumList"></app-album-grid>
+    <ng-template #albumList>
+        <app-album-list></app-album-list>
+    </ng-template>
+</div>
