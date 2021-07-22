@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ImageService } from 'src/app/services/image.service';
 
 @Component({
   selector: 'app-album-grid',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlbumGridComponent implements OnInit {
 
-  constructor() { }
+  imageService: ImageService;
+
+  constructor(imageService: ImageService) {
+    this.imageService = imageService;
+  }
 
   ngOnInit(): void {
   }

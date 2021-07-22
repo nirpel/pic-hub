@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
 import { WebcamModule } from 'ngx-webcam';
 import { FormsModule } from '@angular/forms';
 
@@ -20,6 +21,7 @@ import { LocalImageUploadComponent } from './components/image-upload/local-image
 import { AlbumViewComponent } from './components/views/album-view/album-view.component';
 import { AlbumGridComponent } from './components/album/album-grid/album-grid.component';
 import { AlbumListComponent } from './components/album/album-list/album-list.component';
+import { ImageCardComponent } from './components/album/image-card/image-card.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AlbumListComponent } from './components/album/album-list/album-list.com
     LocalImageUploadComponent,
     AlbumViewComponent,
     AlbumGridComponent,
-    AlbumListComponent 
+    AlbumListComponent,
+    ImageCardComponent 
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { AlbumListComponent } from './components/album/album-list/album-list.com
     MatTabsModule,
     WebcamModule,
     FormsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
