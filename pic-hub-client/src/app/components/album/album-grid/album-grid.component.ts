@@ -15,6 +15,7 @@ export class AlbumGridComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.imageService.getAllImages();
   }
 
 }

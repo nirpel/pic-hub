@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ImageUploadService } from 'src/app/services/image-upload.service';
 
 @Component({
   selector: 'app-upload-view',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./upload-view.component.css']
 })
 export class UploadViewComponent implements OnInit {
-  
-  constructor() { }
+
+  uploadService: ImageUploadService;
+
+  constructor(uploadService: ImageUploadService, private router: Router) {
+    this.uploadService = uploadService;
+  }
 
   ngOnInit(): void {
   }
 
+  doneClickHandler(): void {
+    this.uploadService.upload()?.subscribe();
+    this.router.navigate(['']);
+  }
 }

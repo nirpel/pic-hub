@@ -1,44 +1,58 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { WebcamImage } from 'ngx-webcam';
+import { Observable } from 'rxjs';
+
+const URL: string = 'http://localhost:3069/api/upload';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageUploadService {
 
-  private base64ImageToUpload: string = null;
+  private imageFile: File;
   private readonly extensions: string[] = [
     'png', 'jpg', 'jpeg', 'gif'
   ];
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
-  upload(): void {
-    //TODO: POST image to server
+  upload(): Observable<any> {
+    if (this.imageFile) {
+      let formData = new FormData();
+      formData.append('image', this.imageFile);
+      return this.httpClient.post<any>(URL, formData);
+    }
   }
 
   isValidImageFile(fileName: string): boolean {
     return this.extensions.includes(fileName.split('.').pop().toLowerCase());
   }
 
-  setImageFromWebcamImage(webcamImage: WebcamImage): void {
+  async setImageFromWebcamImage(webcamImage: WebcamImage): Promise<void> {
     if (webcamImage) {
-      this.setImage(webcamImage.imageAsBase64);
+      let imageFile: File = await this.dataUrlToFile(webcamImage.imageAsDataUrl);
+      this.setImage(imageFile);
     }
   }
 
-  setImageFromFile(file: File): void {
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      this.setImage(reader.result.toString());
-    };
-    reader.onerror = (error) => {
-      console.error('Error: ', error);
-    };
+  private dataUrlToFile(url: string) {
+    return (
+      fetch(url)
+        .then((response) => {
+          return response.arrayBuffer();
+        })
+        .then((buffer) => {
+          return new File([buffer], 'newImage.jpg', { type: 'image/jpeg' });
+        })
+    );
   }
 
-  private setImage(base64: string) {
-    this.base64ImageToUpload = base64;
+  setImageFromFile(file: File): void {
+    this.setImage(file);
+  }
+
+  private setImage(imageFile: File) {
+    this.imageFile = imageFile;
   }
 }

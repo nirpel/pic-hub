@@ -7,6 +7,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { WebcamModule } from 'ngx-webcam';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './components/main/app.component';
 import { NavigationBarComponent } from './components/navbar/navigation-bar/navigation-bar.component';
@@ -48,7 +49,8 @@ import { ImageCardComponent } from './components/album/image-card/image-card.com
     MatTabsModule,
     WebcamModule,
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

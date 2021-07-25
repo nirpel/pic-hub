@@ -1,2 +1,4 @@
 <p>album-grid works!</p>
-<app-image-card [image]="imageService.images[0]"></app-image-card>
+<div *ngFor="let image of imageService.images">
+    <app-image-card [image]="image"></app-image-card>
+</div>
