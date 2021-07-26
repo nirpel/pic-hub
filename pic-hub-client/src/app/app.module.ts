@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { WebcamModule } from 'ngx-webcam';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppComponent } from './components/main/app.component';
 import { NavigationBarComponent } from './components/navbar/navigation-bar/navigation-bar.component';
@@ -39,7 +40,7 @@ import { ImageCardComponent } from './components/album/image-card/image-card.com
     AlbumViewComponent,
     AlbumGridComponent,
     AlbumListComponent,
-    ImageCardComponent 
+    ImageCardComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,8 @@ import { ImageCardComponent } from './components/album/image-card/image-card.com
     WebcamModule,
     FormsModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

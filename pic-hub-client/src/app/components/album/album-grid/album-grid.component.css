@@ -1,0 +1,23 @@
+.row {
+    width: 100%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.column {
+    float: left;
+    width: 33%;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-rows: repeat(auto-fit, 260px);
+    grid-auto-flow: dense;
+    grid-gap: 0.3rem;
+}
+
