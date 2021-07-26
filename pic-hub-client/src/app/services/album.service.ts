@@ -6,12 +6,14 @@ import { Display } from '../models/display';
 })
 export class AlbumService {
 
+  // current view to display
   viewDisplay: Display = Display.Grid;
   readonly grid: Display = Display.Grid;
   readonly list: Display = Display.List;
   
   constructor() { }
   
+  // Set current view to display (Grid/List)
   setViewDisplay(display: Display) {
     this.viewDisplay = display;
   }
