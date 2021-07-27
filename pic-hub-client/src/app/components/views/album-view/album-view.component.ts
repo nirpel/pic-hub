@@ -16,6 +16,6 @@ export class AlbumViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.albumService.setViewDisplay(Display.Grid);
   }
-
 }

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Category } from '../models/category';
 import { Image } from '../models/image';
 
-const URL: string = 'http://localhost:3069/api/images'; // Url for GET request
+const URL: string = 'http://localhost:3069/api'; // Url for GET request
 const DIR: string = 'assets/images/uploads/';   // Dir for displaying images
 
 @Injectable({
@@ -21,8 +21,12 @@ export class ImageService {
 
   // Get all Image instances frim server
   getAllImages() {
-    return this.httpClient.get<Image[]>(URL).subscribe(data => {
+    return this.httpClient.get<Image[]>(URL + '/images').subscribe(data => {
       this.images = data;
     });
+  }
+
+  editImage(image: Image) {
+    return this.httpClient.post(URL + '/edit-image', image);
   }
 }

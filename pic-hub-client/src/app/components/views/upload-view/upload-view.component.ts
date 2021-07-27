@@ -19,7 +19,16 @@ export class UploadViewComponent implements OnInit {
   }
 
   doneClickHandler(): void {
-    this.uploadService.upload()?.subscribe();
-    this.router.navigate(['']);
+    if (this.uploadService.imageFile) {
+      this.uploadService.upload().subscribe((data) => {
+        console.log(data);
+      }, (err) => {
+        console.error(err);
+      }, () => {
+        this.router.navigate(['']);
+      });
+    } else {
+      this.router.navigate(['']);
+    }
   }
 }

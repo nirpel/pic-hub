@@ -1,4 +1,5 @@
-
-    <div class="gridContainer" *ngFor="let image of imageService.images">
-        <app-image-card [image]="image"></app-image-card>
+<div class="row" >
+    <div class="column" *ngFor="let image of imageService.images">
+        <app-image-card height='auto' [image]="image"></app-image-card>
     </div>
+</div>

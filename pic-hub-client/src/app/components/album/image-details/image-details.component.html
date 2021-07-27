@@ -1,0 +1,21 @@
+<div class="details-container">    
+    <div *ngIf="isCaptionUnderEdition; then caption_edit_mode else caption"></div>
+    <ng-template #caption>
+        <div class="details-caption">
+            <div>{{ editedImage.caption || defaultCaption }}</div>
+            <fa-icon [icon]="editIcon" (click)="editCaption()"></fa-icon>
+        </div>
+    </ng-template>
+    <ng-template #caption_edit_mode>
+        <div class="details-caption">
+            <input (change)="onCaptionChanged()" type="text" [(ngModel)]="editedImage.caption" />
+            <button (click)="editCaption()">Finish</button>
+        </div>
+    </ng-template>
+    <img class="details-image" [src]="imageService.fullPath(image)" />
+    <fa-icon [icon]="starIcon" (click)="editIsFavorite()"></fa-icon>
+    <fa-icon [icon]="lockIcon" (click)="editIsPrivate()"></fa-icon>
+    <fa-icon [icon]="locationIcon"></fa-icon>
+    <div>{{ categoriesString }}</div>
+    <button [disabled]="!isImageEdited" (click)="saveChanges()">Save Changes</button>
+</div>

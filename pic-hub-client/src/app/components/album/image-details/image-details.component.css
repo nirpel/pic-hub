@@ -1,0 +1,10 @@
+.details-container {
+    max-width: 36vmax;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+.details-image {
+    max-width: 34vmax;
+    max-height: 34vmax;
+}

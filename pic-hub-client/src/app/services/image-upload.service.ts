@@ -11,7 +11,7 @@ const URL: string = 'http://localhost:3069/api/upload';
 export class ImageUploadService {
 
   // imageFile: the current image in File type to post to server
-  private imageFile: File;
+  imageFile: File;
   private readonly extensions: string[] = [
     'png', 'jpg', 'jpeg', 'gif'
   ];
@@ -25,7 +25,7 @@ export class ImageUploadService {
       // Build imageFile in form-data and post to server
       let formData = new FormData();
       formData.append('image', this.imageFile);
-      return this.httpClient.post<any>(URL, formData);
+      return this.httpClient.post(URL, formData);
     }
   }
 
@@ -47,7 +47,7 @@ export class ImageUploadService {
   }
 
   // Converter from dataUrl string to File instance 
-  private dataUrlToFile(url: string): Promise<File>{
+  private dataUrlToFile(url: string): Promise<File> {
     return (
       fetch(url)
         .then((response) => {

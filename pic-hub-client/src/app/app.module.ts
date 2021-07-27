@@ -4,11 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatCardModule } from '@angular/material/card';
 import { WebcamModule } from 'ngx-webcam';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatGridListModule } from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './components/main/app.component';
 import { NavigationBarComponent } from './components/navbar/navigation-bar/navigation-bar.component';
@@ -24,6 +23,7 @@ import { AlbumViewComponent } from './components/views/album-view/album-view.com
 import { AlbumGridComponent } from './components/album/album-grid/album-grid.component';
 import { AlbumListComponent } from './components/album/album-list/album-list.component';
 import { ImageCardComponent } from './components/album/image-card/image-card.component';
+import { ImageDetailsComponent } from './components/album/image-details/image-details.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,8 @@ import { ImageCardComponent } from './components/album/image-card/image-card.com
     AlbumViewComponent,
     AlbumGridComponent,
     AlbumListComponent,
-    ImageCardComponent
+    ImageCardComponent,
+    ImageDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +51,8 @@ import { ImageCardComponent } from './components/album/image-card/image-card.com
     MatTabsModule,
     WebcamModule,
     FormsModule,
-    MatCardModule,
     HttpClientModule,
-    MatGridListModule
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
