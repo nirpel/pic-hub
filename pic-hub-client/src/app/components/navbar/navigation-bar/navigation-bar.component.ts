@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faBars, faCoffee, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
+import { faBars, faCoffee, faUserCircle, faCamera, faUserCheck, faImages, faBook, faFileAlt } from '@fortawesome/free-solid-svg-icons';
 import { MenuLinkModel } from 'src/app/models/menu-link';
 
 @Component({
@@ -14,22 +15,22 @@ export class NavigationBarComponent implements OnInit {
   isBurgerMenuOpen: boolean;
 
   userMenuLinks: MenuLinkModel[] = [
-    { title: 'First User', icon: faCoffee, onClick: () => console.log('First') },
-    { title: 'Second User', icon: faCoffee, onClick: () => console.log('Second') },
+    { title: 'Permitions', icon: faUserCheck, onClick: () => this.router.navigate(['permitions']) },
+    { title: 'Library Details', icon: faBook, onClick: () => this.router.navigate(['library-details']) },
     { title: 'Third User', icon: faCoffee, onClick: () => console.log('Third') },
     { title: 'Fourth User', icon: faCoffee, onClick: () => console.log('Fourth') },
     { title: 'Fifth User', icon: faCoffee, onClick: () => console.log('Fifth') }
   ];
 
   burgerMenuLinks: MenuLinkModel[] = [
-    { title: 'First Burger', icon: faCoffee, onClick: () => console.log('First') },
-    { title: 'Second Burger', icon: faCoffee, onClick: () => console.log('Second') },
-    { title: 'Third Burger', icon: faCoffee, onClick: () => console.log('Third') },
+    { title: 'Upload Photo', icon: faCamera, onClick: () => this.router.navigate(['upload']) },
+    { title: 'Album Gallery', icon: faImages, onClick: () => this.router.navigate(['']) },
+    { title: 'Manage Categories', icon: faFileAlt, onClick: () => this.router.navigate(['categories']) },
     { title: 'Fourth Burger', icon: faCoffee, onClick: () => console.log('Fourth') },
     { title: 'Fifth Burger', icon: faCoffee, onClick: () => console.log('Fifth') }
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.isUserMenuOpen = false;

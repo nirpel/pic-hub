@@ -13,16 +13,8 @@ export class ImageCardComponent implements OnInit {
 
   @Input() image: Image;
 
-  constructor(public imageService: ImageService, public dialog: MatDialog) { }
+  constructor(public imageService: ImageService) { }
 
   ngOnInit(): void {
-  }
-
-  openImageDetails(): void {
-    this.dialog.open(ImageDetailsComponent, {
-      data: {
-        image: this.image
-      }
-    });
   }
 }

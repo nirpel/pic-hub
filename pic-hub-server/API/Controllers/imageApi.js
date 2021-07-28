@@ -2,7 +2,6 @@ const express = require('express');
 const Image = require('../../Models/image');
 const fs = require('fs');
 const multer = require('multer');
-const uuid = require('uuid');
 const path = require('path');
 const config = require('../../config');
 

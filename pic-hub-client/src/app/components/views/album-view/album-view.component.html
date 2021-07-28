@@ -1,7 +1,7 @@
 <div>
     <div>
-        <input type="text" placeholder="Image's Title (or part of it..)" />
-        <button>Search by Title</button>
+        <input type="text" [(ngModel)]="captionSearch" placeholder="Image's Title (or part of it..)" />
+        <button (click)="imageService.getImagesByCaption(captionSearch)">Search by Title</button>
     </div>
     <div>
         <input type="text" placeholder="Category..." />

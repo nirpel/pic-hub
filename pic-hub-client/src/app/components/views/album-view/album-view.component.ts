@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlbumService } from 'src/app/services/album.service';
 import { Display } from 'src/app/models/display';
+import { ImageService } from 'src/app/services/image.service';
 
 @Component({
   selector: 'app-album-view',
@@ -9,11 +10,10 @@ import { Display } from 'src/app/models/display';
 })
 export class AlbumViewComponent implements OnInit {
 
-  albumService: AlbumService;
+  captionSearch: string;
+  categorySearch: string;
 
-  constructor(albumService: AlbumService) {
-    this.albumService = albumService;
-  }
+  constructor(public albumService: AlbumService, public imageService: ImageService) { }
 
   ngOnInit(): void {
     this.albumService.setViewDisplay(Display.Grid);

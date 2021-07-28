@@ -24,6 +24,7 @@ import { AlbumGridComponent } from './components/album/album-grid/album-grid.com
 import { AlbumListComponent } from './components/album/album-list/album-list.component';
 import { ImageCardComponent } from './components/album/image-card/image-card.component';
 import { ImageDetailsComponent } from './components/album/image-details/image-details.component';
+import { AddCategoryComponent } from './components/categories/add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ImageDetailsComponent } from './components/album/image-details/image-de
     AlbumGridComponent,
     AlbumListComponent,
     ImageCardComponent,
-    ImageDetailsComponent
+    ImageDetailsComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,

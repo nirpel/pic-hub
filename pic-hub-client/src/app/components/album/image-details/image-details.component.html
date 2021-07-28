@@ -17,5 +17,5 @@
     <fa-icon [icon]="lockIcon" (click)="editIsPrivate()"></fa-icon>
     <fa-icon [icon]="locationIcon"></fa-icon>
     <div>{{ categoriesString }}</div>
-    <button [disabled]="!isImageEdited" (click)="saveChanges()">Save Changes</button>
+    <button [disabled]="!isImageEdited" (click)="imageService.saveChanges(editedImage)">Save Changes</button>
 </div>

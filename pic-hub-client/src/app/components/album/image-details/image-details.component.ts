@@ -41,18 +41,6 @@ export class ImageDetailsComponent implements OnInit {
     this.setCategoriesString();
   }
 
-  saveChanges(): void {
-    this.imageService.editImage(this.editedImage)
-      .subscribe((data) => {
-        console.log(data);
-      }, (error) => {
-        console.error(error);
-      }, () => {
-        this.router.navigate(['']);
-        console.log('navigated');      
-      });
-  }
-
   onCaptionChanged(): void {
     this.isImageEdited = true;
   }
