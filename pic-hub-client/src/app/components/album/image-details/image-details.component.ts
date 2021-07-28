@@ -5,6 +5,8 @@ import { ImageService } from 'src/app/services/image.service';
 import { faStar as fillStar, faUnlockAlt, faLock, faMapMarkerAlt, faEdit, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { faStar as emptyStar } from '@fortawesome/free-regular-svg-icons';
 import { Router } from '@angular/router';
+import { CategoryService } from 'src/app/services/category.service';
+import { Category } from 'src/app/models/category';
 
 @Component({
   selector: 'app-image-details',
@@ -23,10 +25,14 @@ export class ImageDetailsComponent implements OnInit {
   categoriesString: string;
   isImageEdited: boolean = false;
   isCaptionUnderEdition: boolean = false;
+  isCategoriesUnderEdition: boolean = false;
+  categoriesToAddOptional: Category[];
+  selectedCategoryToAdd: Category;
+
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
-    private router: Router,
+    public categoryService: CategoryService,
     public imageService: ImageService
   ) { }
 
@@ -35,14 +41,19 @@ export class ImageDetailsComponent implements OnInit {
     this.image = this.data.image;
     // clone image to edited image, every change will be displayed on it
     this.editedImage = JSON.parse(JSON.stringify(this.image));
+    // refrash categories list
+    this.categoryService.getAllCategories();
     // set view by image properties
     this.setStarIcon();
     this.setLockIcon();
     this.setCategoriesString();
   }
 
-  onCaptionChanged(): void {
-    this.isImageEdited = true;
+  editCategories(): void {
+    if (!this.isCategoriesUnderEdition) {
+      this.initCategoriesToAddList();
+    }
+    this.isCategoriesUnderEdition = !this.isCategoriesUnderEdition;
   }
 
   editCaption(): void {
@@ -59,6 +70,45 @@ export class ImageDetailsComponent implements OnInit {
     this.editedImage.isPrivate = !this.editedImage.isPrivate;
     this.setLockIcon();
     this.isImageEdited = true;
+  }
+
+  onCaptionChanged(): void {
+    this.isImageEdited = true;
+  }
+
+  addCategory(): void {
+    if (this.selectedCategoryToAdd) {
+      this.editedImage.categories.push(this.selectedCategoryToAdd);
+      this.selectedCategoryToAdd = null;
+      this.setCategoriesString();
+      this.editCategories();
+    }
+  }
+
+  onChangeCategory(category: Category): void {
+    this.selectedCategoryToAdd = category;
+    this.isImageEdited = true;
+  }
+
+  // init a list of categories that are NOT currently related to current image
+  private initCategoriesToAddList() {
+    // init categories options array
+    this.categoriesToAddOptional = [];
+    for (let i = 0; i < this.categoryService.categories.length; i++) {
+      // indicate that current category is not related
+      let exist = false;
+      for (let j = 0; j < this.editedImage.categories.length; j++) {
+        // if a category is related to current image
+        if (this.editedImage.categories[j].title === this.categoryService.categories[i].title) {
+          exist = true;
+          break;
+        }
+      }
+      // if category is not related, add it to options list
+      if (!exist) {
+        this.categoriesToAddOptional.push(this.categoryService.categories[i]);
+      }
+    }
   }
 
   private setCategoriesString(): void {

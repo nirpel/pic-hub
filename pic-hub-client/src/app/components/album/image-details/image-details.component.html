@@ -1,4 +1,4 @@
-<div class="details-container">    
+<div class="details-container">
     <div *ngIf="isCaptionUnderEdition; then caption_edit_mode else caption"></div>
     <ng-template #caption>
         <div class="details-caption">
@@ -12,10 +12,28 @@
             <button (click)="editCaption()">Finish</button>
         </div>
     </ng-template>
+
     <img class="details-image" [src]="imageService.fullPath(image)" />
     <fa-icon [icon]="starIcon" (click)="editIsFavorite()"></fa-icon>
     <fa-icon [icon]="lockIcon" (click)="editIsPrivate()"></fa-icon>
     <fa-icon [icon]="locationIcon"></fa-icon>
-    <div>{{ categoriesString }}</div>
+
+    <div *ngIf="isCategoriesUnderEdition; then categories_edit_mode else categories"></div>
+    <ng-template #categories>
+        <div class="details-categories">
+            <div>{{ categoriesString }}</div>
+            <fa-icon [icon]="editIcon" (click)="editCategories()"></fa-icon>
+        </div>
+    </ng-template>
+    <ng-template #categories_edit_mode>
+        <div class="details-categories">
+            <select [ngModel]="selectedCategoryToAdd" (ngModelChange)="onChangeCategory($event)">
+                <option *ngFor="let category of categoriesToAddOptional" [ngValue]="category">{{ category.title }}</option>
+            </select>
+            <button (click)="addCategory()">Add</button>
+            <button (click)="editCategories()">Cancel</button>
+        </div>
+    </ng-template>
+
     <button [disabled]="!isImageEdited" (click)="imageService.saveChanges(editedImage)">Save Changes</button>
 </div>

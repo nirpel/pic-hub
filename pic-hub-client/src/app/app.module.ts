@@ -7,7 +7,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { WebcamModule } from 'ngx-webcam';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { AppComponent } from './components/main/app.component';
 import { NavigationBarComponent } from './components/navbar/navigation-bar/navigation-bar.component';
@@ -54,7 +55,8 @@ import { AddCategoryComponent } from './components/categories/add-category/add-c
     WebcamModule,
     FormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

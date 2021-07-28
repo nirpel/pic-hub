@@ -49,15 +49,18 @@ export class ImageService {
   }
 
   // Get images by specific category
-  getImagesByCategory(category: Category) {
-    if (category) {
+  getImagesByCategory(categoryTitle: string) {
+    if (categoryTitle) {
+      let title = categoryTitle.toLowerCase();
       this.getImagesFromServer().subscribe(data => {
         this.images = data.filter(
-          
-          // TODO:
-          // fix category searching by specifying to title / id
-
-          img => img.categories?.includes(category)
+          (img) => {
+            for (let i = 0; i < img.categories.length; i++) {
+              if (img.categories[i].title.toLowerCase() === title)
+              return true;
+            }
+            return false;
+          }
         );
       });
     }

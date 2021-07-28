@@ -4,8 +4,13 @@
         <button (click)="imageService.getImagesByCaption(captionSearch)">Search by Title</button>
     </div>
     <div>
-        <input type="text" placeholder="Category..." />
-        <button>Search by Category</button>
+        <input type="text" placeholder="Category..." [matAutocomplete]="auto" />
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let category of categoryService.categories" [value]="category.title">
+                {{ category.title }}
+            </mat-option>
+        </mat-autocomplete>
+        <button (click)="imageService.getImagesByCategory(categorySearch)">Search by Category</button>
     </div>
 
     <app-album-grid *ngIf="albumService.viewDisplay === albumService.grid; else albumList"></app-album-grid>
