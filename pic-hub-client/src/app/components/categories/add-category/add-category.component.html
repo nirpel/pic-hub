@@ -2,7 +2,7 @@
     <h1>Add new Category</h1>
     <div>
         <div>Category Title:</div>
-        <input type="text" />
+        <input type="text" [(ngModel)]="categoryTitle" />
     </div>
-    <button>Add</button>
+    <button (click)="addCategory()">Add</button>
 </div>

@@ -25,9 +25,9 @@ export class CategoryService {
   }
 
   isCategoryExist(categoryTitle: string) {
-    let title = categoryTitle.toLocaleLowerCase();
-    for (let category of this.categories) {
-      if (category.title.toLowerCase() === title) {
+    let title = categoryTitle.toLowerCase();
+    for (let i = 0; i < this.categories.length; i++) {
+      if (this.categories[i].title.toLowerCase() === title) {
         return true;
       }
     }
@@ -42,6 +42,7 @@ export class CategoryService {
         console.error(err);
       }, () => {
         alert('Category added successfully!');
+        this.getAllCategories();
       });
   }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { faBars, faCoffee, faUserCircle, faCamera, faUserCheck, faImages, faBook, faFileAlt } from '@fortawesome/free-solid-svg-icons';
 import { MenuLinkModel } from 'src/app/models/menu-link';
+import { AddCategoryComponent } from '../../categories/add-category/add-category.component';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -25,12 +27,12 @@ export class NavigationBarComponent implements OnInit {
   burgerMenuLinks: MenuLinkModel[] = [
     { title: 'Upload Photo', icon: faCamera, onClick: () => this.router.navigate(['upload']) },
     { title: 'Album Gallery', icon: faImages, onClick: () => this.router.navigate(['']) },
-    { title: 'Manage Categories', icon: faFileAlt, onClick: () => this.router.navigate(['categories']) },
+    { title: 'Manage Categories', icon: faFileAlt, onClick: () => this.dialog.open(AddCategoryComponent) },
     { title: 'Fourth Burger', icon: faCoffee, onClick: () => console.log('Fourth') },
     { title: 'Fifth Burger', icon: faCoffee, onClick: () => console.log('Fifth') }
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.isUserMenuOpen = false;
