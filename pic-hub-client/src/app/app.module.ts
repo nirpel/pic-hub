@@ -28,6 +28,7 @@ import { ImageDetailsComponent } from './components/album/image-details/image-de
 import { AddCategoryComponent } from './components/categories/add-category/add-category.component';
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './components/album/map/map.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,7 @@ import { MapComponent } from './components/album/map/map.component';
     MatDialogModule,
     MatAutocompleteModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAn3GK7-QtYhh9JozzqrN5thoq_YUF7eTI'
+      apiKey: environment.GOOGLE_API_KEY
     }) 
   ],
   providers: [],
