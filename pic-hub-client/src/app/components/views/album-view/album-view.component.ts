@@ -3,6 +3,7 @@ import { AlbumService } from 'src/app/services/album.service';
 import { Display } from 'src/app/models/display';
 import { ImageService } from 'src/app/services/image.service';
 import { CategoryService } from 'src/app/services/category.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-album-view',
@@ -13,6 +14,7 @@ export class AlbumViewComponent implements OnInit {
 
   captionSearch: string;
   categorySearch: string;
+  filteredCategories: Observable<string>;
 
   constructor(
     public albumService: AlbumService,

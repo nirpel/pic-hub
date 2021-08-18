@@ -26,6 +26,8 @@ import { AlbumListComponent } from './components/album/album-list/album-list.com
 import { ImageCardComponent } from './components/album/image-card/image-card.component';
 import { ImageDetailsComponent } from './components/album/image-details/image-details.component';
 import { AddCategoryComponent } from './components/categories/add-category/add-category.component';
+import { AgmCoreModule } from '@agm/core';
+import { MapComponent } from './components/album/map/map.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { AddCategoryComponent } from './components/categories/add-category/add-c
     AlbumListComponent,
     ImageCardComponent,
     ImageDetailsComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,10 @@ import { AddCategoryComponent } from './components/categories/add-category/add-c
     FormsModule,
     HttpClientModule,
     MatDialogModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAn3GK7-QtYhh9JozzqrN5thoq_YUF7eTI'
+    }) 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,8 @@ import { faStar as emptyStar } from '@fortawesome/free-regular-svg-icons';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/models/category';
+import { MapService } from 'src/app/services/map.service';
+import { Location } from 'src/app/models/location';
 
 @Component({
   selector: 'app-image-details',
@@ -26,6 +28,7 @@ export class ImageDetailsComponent implements OnInit {
   isImageEdited: boolean = false;
   isCaptionUnderEdition: boolean = false;
   isCategoriesUnderEdition: boolean = false;
+  isLocationUnderEdition: boolean = false;
   categoriesToAddOptional: Category[];
   selectedCategoryToAdd: Category;
 
@@ -33,7 +36,8 @@ export class ImageDetailsComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     public categoryService: CategoryService,
-    public imageService: ImageService
+    public imageService: ImageService,
+    public mapService: MapService
   ) { }
 
   ngOnInit(): void {
@@ -43,10 +47,19 @@ export class ImageDetailsComponent implements OnInit {
     this.editedImage = JSON.parse(JSON.stringify(this.image));
     // refrash categories list
     this.categoryService.getAllCategories();
+    // init map for location of current image & listen to location changes
+    this.mapService.initMap(this.editedImage.location);
+    this.mapService.locationChanged.subscribe((location: Location) => {
+      this.setLocation(location);
+    })
     // set view by image properties
     this.setStarIcon();
     this.setLockIcon();
     this.setCategoriesString();
+  }
+
+  editLocation(): void {
+    this.isLocationUnderEdition = !this.isLocationUnderEdition;
   }
 
   editCategories(): void {
@@ -73,6 +86,11 @@ export class ImageDetailsComponent implements OnInit {
   }
 
   onCaptionChanged(): void {
+    this.isImageEdited = true;
+  }
+
+  setLocation(location: Location) {
+    this.editedImage.location = location;
     this.isImageEdited = true;
   }
 

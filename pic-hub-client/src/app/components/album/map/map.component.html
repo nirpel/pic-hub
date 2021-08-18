@@ -1,0 +1,3 @@
+<agm-map [latitude]="mapService.lat" [longitude]="mapService.lng" (mapReady)="mapService.onMapReady($event)">
+    <agm-marker [latitude]="mapService.lat" [longitude]="mapService.lng"></agm-marker>
+</agm-map>

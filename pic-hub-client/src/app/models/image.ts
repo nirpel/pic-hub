@@ -1,19 +1,11 @@
 import { Category } from "./category";
+import { Location } from "./location";
 
-export class Image {
+export interface Image {
     fileName: string;
-    caption: string;
-    categories: Category[];
-    location: string;
+    caption?: string;
+    categories?: Category[];
+    location?: Location;
     isFavorite: boolean;
     isPrivate: boolean;
-
-    constructor(fileName: string, caption: string, categories: Category[], location: string, isFavorite: boolean, isPrivate: boolean) {
-        this.fileName = fileName;
-        this.caption = caption;
-        this.categories = categories;
-        this.location = location;
-        this.isFavorite = isFavorite;
-        this.isPrivate = isPrivate
-    }
 }

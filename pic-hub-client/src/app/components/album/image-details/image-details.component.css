@@ -8,3 +8,7 @@
     max-width: 34vmax;
     max-height: 34vmax;
 }
+
+.map-closed {
+    display: none;
+}

@@ -1,8 +1,3 @@
-export class Category {
-    
+export interface Category {
     title: string;
-
-    constructor(title: string) {
-        this.title = title;
-    }
 }

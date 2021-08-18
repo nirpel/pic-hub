@@ -16,7 +16,8 @@
     <img class="details-image" [src]="imageService.fullPath(image)" />
     <fa-icon [icon]="starIcon" (click)="editIsFavorite()"></fa-icon>
     <fa-icon [icon]="lockIcon" (click)="editIsPrivate()"></fa-icon>
-    <fa-icon [icon]="locationIcon"></fa-icon>
+    <fa-icon [icon]="locationIcon" (click)="editLocation()"></fa-icon>
+    <app-map [ngClass]="{'map-closed': !isLocationUnderEdition}"></app-map>
 
     <div *ngIf="isCategoriesUnderEdition; then categories_edit_mode else categories"></div>
     <ng-template #categories>
@@ -28,7 +29,8 @@
     <ng-template #categories_edit_mode>
         <div class="details-categories">
             <select [ngModel]="selectedCategoryToAdd" (ngModelChange)="onChangeCategory($event)">
-                <option *ngFor="let category of categoriesToAddOptional" [ngValue]="category">{{ category.title }}</option>
+                <option *ngFor="let category of categoriesToAddOptional" [ngValue]="category">{{ category.title }}
+                </option>
             </select>
             <button (click)="addCategory()">Add</button>
             <button (click)="editCategories()">Cancel</button>

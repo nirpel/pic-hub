@@ -23,7 +23,7 @@ export class AddCategoryComponent implements OnInit {
         alert('This category already exists!');
       }
       else {
-        let newCategory = new Category(this.categoryTitle);
+        let newCategory: Category = { title: this.categoryTitle };
         this.categoryService.addCategory(newCategory);
       }
     }
