@@ -29,6 +29,8 @@ import { AddCategoryComponent } from './components/categories/add-category/add-c
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './components/album/map/map.component';
 import { environment } from 'src/environments/environment';
+import { PrivateModeViewComponent } from './components/views/private-mode-view/private-mode-view.component';
+import { ApiImageUploadComponent } from './components/image-upload/api-image-upload/api-image-upload.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { environment } from 'src/environments/environment';
     ImageCardComponent,
     ImageDetailsComponent,
     AddCategoryComponent,
-    MapComponent
+    MapComponent,
+    PrivateModeViewComponent,
+    ApiImageUploadComponent
   ],
   imports: [
     BrowserModule,

@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ImageDetailsComponent } from '../components/album/image-details/image-details.component';
-import { Category } from '../models/category';
 import { Image } from '../models/image';
+import { UserService } from './user.service';
 
 const URL: string = 'http://localhost:3069/api'; // Url for GET request
 const DIR: string = 'assets/images/uploads/';   // Dir for displaying images
@@ -14,7 +14,7 @@ const DIR: string = 'assets/images/uploads/';   // Dir for displaying images
 export class ImageService {
   images: Image[];
 
-  constructor(private httpClient: HttpClient, private dialog: MatDialog) { }
+  constructor(private httpClient: HttpClient, private dialog: MatDialog, private userService: UserService) { }
 
   // Return full path of an image
   fullPath(image: Image) {
@@ -29,6 +29,7 @@ export class ImageService {
   getAllImages() {
     this.getImagesFromServer().subscribe(data => {
       this.images = data;
+      this.filterPrivateMode();
     });
   }
 
@@ -41,6 +42,7 @@ export class ImageService {
         this.images = data.filter(
           img => img.caption?.toLocaleLowerCase().includes(caption)
         );
+        this.filterPrivateMode();
       });
     }
     else {
@@ -55,13 +57,16 @@ export class ImageService {
       this.getImagesFromServer().subscribe(data => {
         this.images = data.filter(
           (img) => {
-            for (let i = 0; i < img.categories.length; i++) {
-              if (img.categories[i].title.toLowerCase() === title)
-              return true;
+            if (img.categories) {
+              for (let i = 0; i < img.categories.length; i++) {
+                if (img.categories[i].title.toLowerCase() === title)
+                  return true;
+              }
+              return false;
             }
-            return false;
           }
         );
+        this.filterPrivateMode();
       });
     }
     else {
@@ -95,5 +100,11 @@ export class ImageService {
         this.dialog.closeAll();
         this.getAllImages();
       });
+  }
+
+  private filterPrivateMode() {
+    if (!this.userService.isPrivateModeOn) {
+      this.images = this.images.filter(img => img.isPrivate === false);
+    }
   }
 }

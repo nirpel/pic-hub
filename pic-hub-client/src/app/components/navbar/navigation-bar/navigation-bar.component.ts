@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { faBars, faCoffee, faUserCircle, faCamera, faUserCheck, faImages, faBook, faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCoffee, faUserCircle, faCamera, faUserCheck, faImages, faBook, faFileAlt, faLock } from '@fortawesome/free-solid-svg-icons';
 import { MenuLinkModel } from 'src/app/models/menu-link';
 import { AddCategoryComponent } from '../../categories/add-category/add-category.component';
 
@@ -19,7 +19,7 @@ export class NavigationBarComponent implements OnInit {
   userMenuLinks: MenuLinkModel[] = [
     { title: 'Permitions', icon: faUserCheck, onClick: () => this.router.navigate(['permitions']) },
     { title: 'Library Details', icon: faBook, onClick: () => this.router.navigate(['library-details']) },
-    { title: 'Third User', icon: faCoffee, onClick: () => console.log('Third') },
+    { title: 'Private Mode', icon: faLock, onClick: () => this.router.navigate(['private-mode']) },
     { title: 'Fourth User', icon: faCoffee, onClick: () => console.log('Fourth') },
     { title: 'Fifth User', icon: faCoffee, onClick: () => console.log('Fifth') }
   ];

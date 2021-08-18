@@ -1,0 +1,12 @@
+<div *ngIf="userService.isPrivateModeOn; then exit_private_mode else enter_private_mode"></div>
+<ng-template #enter_private_mode>
+    <div>
+        <input type="password" [(ngModel)]="password"/>
+        <button (click)="enterPrivateMode()">Confirm</button>
+    </div>
+</ng-template>
+<ng-template #exit_private_mode>
+    <div>
+        <button (click)="exitPrivateMode()">Exit Private Mode</button>
+    </div>
+</ng-template>
