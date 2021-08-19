@@ -1,10 +1,14 @@
-<mat-tab-group [selectedIndex]="1">
-    <mat-tab label="Online Images" disabled> Content 1 </mat-tab>
-    <mat-tab label="Local Machine">
-        <app-local-image-upload></app-local-image-upload>
-    </mat-tab>
-    <mat-tab label="Camera">
-        <app-camera></app-camera>
-    </mat-tab>
-</mat-tab-group>
-<button (click)='doneClickHandler()'>Done</button>
+<div class="upload-view-container">
+    <mat-tab-group [selectedIndex]="1">
+        <mat-tab label="Online Images">
+            <app-api-image-upload></app-api-image-upload>
+        </mat-tab>
+        <mat-tab label="Local Machine">
+            <app-local-image-upload></app-local-image-upload>
+        </mat-tab>
+        <mat-tab label="Camera">
+            <app-camera></app-camera>
+        </mat-tab>
+    </mat-tab-group>
+    <button (click)='doneClickHandler()'>Done</button>
+</div>

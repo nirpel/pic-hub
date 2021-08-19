@@ -1,0 +1,30 @@
+.photos-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.photo-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5vmax;
+}
+
+.pexels-photo {
+    height: 11vmax;
+}
+
+.pexels-photo:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.selected-photo {
+    background-color: yellow;
+    opacity: 0.5;
+}

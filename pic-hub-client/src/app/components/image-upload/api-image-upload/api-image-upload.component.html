@@ -1,1 +1,5 @@
-<p>api-image-upload works!</p>
+<div class="photos-container">
+    <div class="photo-wrapper" *ngFor="let photo of pexelsService.photos" [ngClass]="{'selected-photo': selectedPhoto && selectedPhoto.id === photo.id}">
+        <img class="pexels-photo" [src]="photo.src.landscape" (click)="selectPhoto(photo)" />
+    </div>
+</div>

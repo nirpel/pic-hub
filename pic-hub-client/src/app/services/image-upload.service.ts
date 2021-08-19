@@ -46,10 +46,20 @@ export class ImageUploadService {
     }
   }
 
+  async setImageFromUrl(url: string): Promise<void> {
+    // Ensure url is available
+    if (url) {
+      // Transform given url to File object asynchronously
+      let imageFile: File = await this.dataUrlToFile(url);
+      // set the selected image to the given image transformed from url
+      this.setImage(imageFile);
+    }
+  }
+
   // Converter from dataUrl string to File instance 
-  private dataUrlToFile(url: string): Promise<File> {
+  private dataUrlToFile(dataUrl: string): Promise<File> {
     return (
-      fetch(url)
+      fetch(dataUrl)
         .then((response) => {
           // return fetched datab url's buffer array
           return response.arrayBuffer();

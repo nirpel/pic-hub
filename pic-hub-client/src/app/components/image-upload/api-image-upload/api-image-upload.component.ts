@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Photo } from 'pexels';
+import { ImageUploadService } from 'src/app/services/image-upload.service';
+import { PexelsService } from 'src/app/services/pexels.service';
 
 @Component({
   selector: 'app-api-image-upload',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApiImageUploadComponent implements OnInit {
 
-  constructor() { }
+  selectedPhoto: Photo;
+  constructor(public pexelsService: PexelsService, private uploadService: ImageUploadService) { }
 
   ngOnInit(): void {
+    this.pexelsService.pullPhotos();
   }
 
+  selectPhoto(photo: Photo) {
+    if (this.selectedPhoto && this.selectedPhoto.id === photo.id) {
+      this.selectedPhoto = null;
+      this.uploadService.imageFile = null;
+    } else {
+      this.selectedPhoto = photo;
+      this.uploadService.setImageFromUrl(photo.src.original);
+    }
+  }
 }

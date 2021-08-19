@@ -28,13 +28,13 @@ export class MapService {
     });
   }
 
-  onMapReady(map: google.maps.Map) {
-    map.addListener('click', (e: google.maps.MouseEvent) => {
+  onMapReady(map) {
+    map.addListener('click', (e) => {
       this.setLocation(e.latLng);
     })
   }
 
-  setLocation(location: google.maps.LatLng) {
+  setLocation(location) {
     this.lat = location.lat();
     this.lng = location.lng();
     this.locationChanged.emit({ lat: this.lat, lng: this.lng });
