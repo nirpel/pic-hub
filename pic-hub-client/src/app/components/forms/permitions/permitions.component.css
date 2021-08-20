@@ -1,0 +1,9 @@
+.permitions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.permitions-line app-checkbox {
+    margin: 0 0.2em;
+}

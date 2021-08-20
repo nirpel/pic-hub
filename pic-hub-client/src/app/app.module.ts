@@ -31,6 +31,8 @@ import { MapComponent } from './components/album/map/map.component';
 import { environment } from 'src/environments/environment';
 import { PrivateModeViewComponent } from './components/views/private-mode-view/private-mode-view.component';
 import { ApiImageUploadComponent } from './components/image-upload/api-image-upload/api-image-upload.component';
+import { CheckboxComponent } from './components/elements/checkbox/checkbox.component';
+import { PermitionsComponent } from './components/forms/permitions/permitions.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { ApiImageUploadComponent } from './components/image-upload/api-image-upl
     AddCategoryComponent,
     MapComponent,
     PrivateModeViewComponent,
-    ApiImageUploadComponent
+    ApiImageUploadComponent,
+    CheckboxComponent,
+    PermitionsComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,9 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
 
+  allowCamera: boolean = false;
+  allowLocation: boolean = false;
+  allowPrivateMode: boolean = false;
   isPrivateModeOn: boolean = false;
 
   constructor() { }
