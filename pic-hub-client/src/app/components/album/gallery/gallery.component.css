@@ -10,8 +10,16 @@
 
 .column {
     float: left;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.col-grid {
+    width: 33%;
+}
+
+.col-list {
+    width: 100%;
+}
+

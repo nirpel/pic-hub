@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AlbumListComponent } from './album-list.component';
+import { GalleryComponent } from './gallery.component';
 
-describe('AlbumListComponent', () => {
-  let component: AlbumListComponent;
-  let fixture: ComponentFixture<AlbumListComponent>;
+describe('AlbumGridComponent', () => {
+  let component: GalleryComponent;
+  let fixture: ComponentFixture<GalleryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AlbumListComponent ]
+      declarations: [ GalleryComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AlbumListComponent);
+    fixture = TestBed.createComponent(GalleryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

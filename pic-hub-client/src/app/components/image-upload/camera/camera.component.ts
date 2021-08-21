@@ -1,8 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
-import { Observable, Subject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { WebcamImage } from 'ngx-webcam';
 import { CameraService } from 'src/app/services/camera.service';
 import { ImageUploadService } from 'src/app/services/image-upload.service';
+import { faCamera, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-camera',
@@ -12,6 +12,7 @@ import { ImageUploadService } from 'src/app/services/image-upload.service';
 export class CameraComponent implements OnInit {
 
   cameraService: CameraService;
+  cameraIcon: IconDefinition = faCamera;
 
   constructor(cameraService: CameraService, private uploadService: ImageUploadService) { 
     this.cameraService = cameraService;
@@ -23,7 +24,7 @@ export class CameraComponent implements OnInit {
 
   takeNewPicture(): void {
     this.cameraService.onOffWebCame();
-    this.updateImage();
+    this.uploadService.imageFile = null;
   }
 
   handleImage(webcamImage: WebcamImage) {

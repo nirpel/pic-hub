@@ -12,9 +12,5 @@
         </mat-autocomplete>
         <button (click)="imageService.getImagesByCategory(categorySearch)">Search by Category</button>
     </div>
-
-    <app-album-grid *ngIf="albumService.viewDisplay === albumService.grid; else albumList"></app-album-grid>
-    <ng-template #albumList>
-        <app-album-list></app-album-list>
-    </ng-template>
+    <app-gallery></app-gallery>
 </div>

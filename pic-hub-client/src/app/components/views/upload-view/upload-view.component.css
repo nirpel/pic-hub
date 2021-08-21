@@ -1,7 +1,15 @@
 .upload-view-container {
-    height: 90%
+    height: 90%;
+}
+
+.upload-view-footer {
+    padding: 2em 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 mat-tab-group{
-    height: 90%
+    height: 90%;
 }

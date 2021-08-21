@@ -1,11 +1,18 @@
 <div *ngIf="cameraService.isCameraExist; else noCameraExist">
-    <div style="text-align:center">
-        <div class="btn-group">
-            <button class="button" (click)="cameraService.takeSnapshot()" *ngIf="!cameraService.webcamImage; else takeNew">Take Picture</button>
-            <button class="button" (click)="takeNewPicture()" *ngIf="cameraService.webcamImage">Try Again</button>
-        </div> <br />
-        <webcam [height]="500" [width]="1000" [trigger]="cameraService.triggerObservable" (imageCapture)="handleImage($event)" *ngIf="cameraService.showWebcam"></webcam>
-        <img [src]="cameraService.webcamImage.imageAsDataUrl" [height]="500" *ngIf="!cameraService.showWebcam && cameraService.webcamImage" />
+    <div class="camera-container">
+        <div></div>
+        <div>
+            <webcam [height]="400" [width]="1000" [trigger]="cameraService.triggerObservable"
+                (imageCapture)="handleImage($event)" *ngIf="cameraService.showWebcam"></webcam>
+            <img [src]="cameraService.webcamImage.imageAsDataUrl" [height]="400"
+                *ngIf="!cameraService.showWebcam && cameraService.webcamImage" />
+        </div>
+        <div class="column-wrapper">
+            <div class="camera-button" (click)="cameraService.takeSnapshot()" *ngIf="!cameraService.webcamImage">
+                <fa-icon [icon]="cameraIcon"></fa-icon>
+            </div>
+            <button class="btn" (click)="takeNewPicture()" *ngIf="cameraService.webcamImage">Try Again</button>
+        </div>
     </div>
 
     <div *ngIf="cameraService.errors.length > 0">

@@ -10,5 +10,7 @@
             <app-camera></app-camera>
         </mat-tab>
     </mat-tab-group>
-    <button (click)='doneClickHandler()'>Done</button>
+    <div class="upload-view-footer">
+        <button class="btn btn-lg" (click)='doneClickHandler()'>{{ uploadService.imageFile ? 'Done & Upload' : 'Skip' }}</button>
+    </div>
 </div>

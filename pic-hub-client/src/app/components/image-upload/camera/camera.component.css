@@ -1,0 +1,40 @@
+.camera-container {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.column-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.camera-button {
+    margin: 5px auto 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5em;
+    height: 5em;
+    background-color: var(--primary);
+    border-radius: 50%;
+    transition-duration: 0.3s;
+    
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.camera-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+    background-color: var(--primary-dark);
+}
+
+.camera-button:active {
+    background-color: var(--primary-light);
+}
+
+.camera-button :nth-child(1) {
+    color: #fff;
+    font-size: 2em;
+}

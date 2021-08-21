@@ -21,8 +21,7 @@ import { UploadViewComponent } from './components/views/upload-view/upload-view.
 import { CameraComponent } from './components/image-upload/camera/camera.component';
 import { LocalImageUploadComponent } from './components/image-upload/local-image-upload/local-image-upload.component';
 import { AlbumViewComponent } from './components/views/album-view/album-view.component';
-import { AlbumGridComponent } from './components/album/album-grid/album-grid.component';
-import { AlbumListComponent } from './components/album/album-list/album-list.component';
+import { GalleryComponent } from './components/album/gallery/gallery.component';
 import { ImageCardComponent } from './components/album/image-card/image-card.component';
 import { ImageDetailsComponent } from './components/album/image-details/image-details.component';
 import { AddCategoryComponent } from './components/categories/add-category/add-category.component';
@@ -48,8 +47,7 @@ import { RadioButtonComponent } from './components/elements/radio-button/radio-b
     CameraComponent,
     LocalImageUploadComponent,
     AlbumViewComponent,
-    AlbumGridComponent,
-    AlbumListComponent,
+    GalleryComponent,
     ImageCardComponent,
     ImageDetailsComponent,
     AddCategoryComponent,
