@@ -10,6 +10,8 @@ export class UserService {
   allowLocation: boolean = false;
   allowPrivateMode: boolean = false;
   isPrivateModeOn: boolean = false;
+  libraryName: string;
+  privateModePassword: string;
 
   constructor() { }
 

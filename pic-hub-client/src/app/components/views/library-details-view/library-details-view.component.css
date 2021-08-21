@@ -1,0 +1,37 @@
+.details-box {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 1.3em;
+    padding: 3em 5em;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    height: 100%;
+}
+
+.details-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.details-form input {
+    margin: 0.7em 0;
+}
+
+.box-wrapper {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6em;
+}
+
+.details-title {
+    margin: 1em 0 0.5em 0;
+    width: 100%;
+    font-size: 1.2em;
+    text-align: start;
+}

@@ -1,0 +1,4 @@
+<label class="radio-container">{{ label }}
+    <input type="radio" [name]="name" [disabled]="disabled" (change)="onChanged($event)" (blur)="onBlur($event)" [value]="value" [(ngModel)]="modelValue">
+    <span class="radio-checkmark"></span>
+</label>

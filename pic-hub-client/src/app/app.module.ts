@@ -33,6 +33,7 @@ import { PrivateModeViewComponent } from './components/views/private-mode-view/p
 import { ApiImageUploadComponent } from './components/image-upload/api-image-upload/api-image-upload.component';
 import { CheckboxComponent } from './components/elements/checkbox/checkbox.component';
 import { PermitionsComponent } from './components/forms/permitions/permitions.component';
+import { RadioButtonComponent } from './components/elements/radio-button/radio-button.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { PermitionsComponent } from './components/forms/permitions/permitions.co
     PrivateModeViewComponent,
     ApiImageUploadComponent,
     CheckboxComponent,
-    PermitionsComponent
+    PermitionsComponent,
+    RadioButtonComponent
   ],
   imports: [
     BrowserModule,

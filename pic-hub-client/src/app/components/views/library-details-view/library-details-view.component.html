@@ -1,2 +1,16 @@
-<p>library-details-view works!</p>
-<button (click)="next()">Next</button>
+<div class="box-wrapper">
+    <div class="details-box">
+        <div class="details-form">
+            <input type="text" [(ngModel)]="userService.libraryName" placeholder="Library Name" />
+            <input type="password" [(ngModel)]="userService.privateModePassword" placeholder="Private mode password" />
+            <div class="details-title">Default view Disaply:</div>
+            <div>
+                <app-radio-button name="display" label="Grid" [value]="albumService.grid"
+                    [(ngModel)]="albumService.viewDisplay"></app-radio-button>
+                <app-radio-button name="display" label="List" [value]="albumService.list"
+                    [(ngModel)]="albumService.viewDisplay"></app-radio-button>
+            </div>
+        </div>
+        <button [disabled]="!userService.libraryName || !userService.privateModePassword ? true : null" class="btn btn-lg" (click)="next()">Next</button>
+    </div>
+</div>

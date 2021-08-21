@@ -22,12 +22,15 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   writeValue(obj: any): void {
     this.isChecked = obj as boolean;
   }
+
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
+
   registerOnTouched(fn: any): void {
     this.onBlur = fn;
   }
+  
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
