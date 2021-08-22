@@ -2,6 +2,8 @@
     max-width: 36vmax;
     overflow-x: hidden;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .details-image {
@@ -9,6 +11,91 @@
     max-height: 34vmax;
 }
 
-.map-closed {
+.hidden {
     display: none;
+}
+
+.details-caption-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1em;
+}
+
+.details-caption-container input {
+    margin-right: 0.4em;
+}
+
+.details-caption {
+    text-align: left;
+    font-size: 1.5em;
+}
+
+.edit-logo {
+    font-size: 0.8em;
+    color: var(--primary);
+    transition-duration: 0.3s;
+    margin-left: 0.3em;
+}
+
+.edit-logo:hover {
+    color: var(--primary-light);
+    cursor: pointer;
+}
+
+.details-connected-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details-bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5em 0;
+}
+
+.details-logo {
+   font-size: 1.5em;
+   margin-left: 0.3em;
+   color: var(--primary-dark); 
+   transition-duration: 0.3s;
+   z-index: 10;
+}
+
+.details-logo:hover {
+    color: var(--primary);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.selected {
+    color: orange;
+}
+
+.details-save {
+    margin: 0.5em 0;
+}
+
+.category-edit-icon {
+    font-size: 1.3em;
+    transition-duration: 0.3s;
+}
+
+.category-edit-icon:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.add-icon {
+    color: green;
+}
+
+.back-icon {
+    color: var(--primary);
+}
+
+.edit-category-select {
+    margin: 0 1em;
 }

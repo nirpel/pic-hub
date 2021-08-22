@@ -17,19 +17,57 @@ export class NavigationBarComponent implements OnInit {
   isBurgerMenuOpen: boolean;
 
   userMenuLinks: MenuLinkModel[] = [
-    { title: 'Permitions', icon: faUserCheck, onClick: () => this.router.navigate(['permitions']) },
-    { title: 'Library Details', icon: faBook, onClick: () => this.router.navigate(['library-details']) },
-    { title: 'Private Mode', icon: faLock, onClick: () => this.router.navigate(['private-mode']) },
-    { title: 'Fourth User', icon: faCoffee, onClick: () => console.log('Fourth') },
-    { title: 'Fifth User', icon: faCoffee, onClick: () => console.log('Fifth') }
+    {
+      title: 'Permitions',
+      icon: faUserCheck,
+      onClick: () => {
+        this.router.navigate(['permitions']);
+        this.toggleUserMenu();
+      }
+    },
+    {
+      title: 'Library Details',
+      icon: faBook,
+      onClick: () => {
+        this.router.navigate(['library-details']);
+        this.toggleUserMenu();
+      }
+    },
+    {
+      title: 'Private Mode',
+      icon: faLock,
+      onClick: () => {
+        this.router.navigate(['private-mode']);
+        this.toggleUserMenu();
+      }
+    }
   ];
 
   burgerMenuLinks: MenuLinkModel[] = [
-    { title: 'Upload Photo', icon: faCamera, onClick: () => this.router.navigate(['upload']) },
-    { title: 'Album Gallery', icon: faImages, onClick: () => this.router.navigate(['']) },
-    { title: 'Manage Categories', icon: faFileAlt, onClick: () => this.dialog.open(AddCategoryComponent) },
-    { title: 'Fourth Burger', icon: faCoffee, onClick: () => console.log('Fourth') },
-    { title: 'Fifth Burger', icon: faCoffee, onClick: () => console.log('Fifth') }
+    {
+      title: 'Upload Photo',
+      icon: faCamera,
+      onClick: () => {
+        this.router.navigate(['upload']);
+        this.toggleBurgerMenu();
+      }
+    },
+    {
+      title: 'Album Gallery',
+      icon: faImages,
+      onClick: () => {
+        this.router.navigate(['']);
+        this.toggleBurgerMenu();
+      }
+    },
+    {
+      title: 'Manage Categories',
+      icon: faFileAlt,
+      onClick: () => {
+        this.dialog.open(AddCategoryComponent);
+        this.toggleBurgerMenu();
+      }
+    }
   ];
 
   constructor(private router: Router, private dialog: MatDialog) { }
@@ -51,6 +89,10 @@ export class NavigationBarComponent implements OnInit {
       this.isBurgerMenuOpen = false;
     }
     this.isUserMenuOpen = !this.isUserMenuOpen;
+  }
+
+  onLogoClick(): void {
+    this.router.navigate(['']);
   }
 
 }

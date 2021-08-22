@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Image } from 'src/app/models/image';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ImageService } from 'src/app/services/image.service';
-import { faStar as fillStar, faUnlockAlt, faLock, faMapMarkerAlt, faEdit, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faStar as fillStar, faUnlockAlt, faLock, faMapMarkerAlt, faEdit, faCheck, faUndoAlt ,IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { faStar as emptyStar } from '@fortawesome/free-regular-svg-icons';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
@@ -24,6 +24,8 @@ export class ImageDetailsComponent implements OnInit {
   lockIcon: IconDefinition;
   locationIcon: IconDefinition = faMapMarkerAlt;
   editIcon: IconDefinition = faEdit;
+  backIcon: IconDefinition = faUndoAlt;
+  addIcon: IconDefinition = faCheck;
   categoriesString: string;
   isImageEdited: boolean = false;
   isCaptionUnderEdition: boolean = false;

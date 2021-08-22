@@ -1,4 +1,5 @@
-<div class="permitions-view">
+<div class="permitions-view background">
     <app-permitions></app-permitions>
-    <button class="btn" (click)='next()'>Next</button>
+    <button class="btn" (click)='save()'
+        [disabled]="userService.allowCamera && userService.allowLocation && userService.allowPrivateMode ? null : true">Save</button>
 </div>

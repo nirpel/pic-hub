@@ -1,16 +1,18 @@
-<div>
-    <div>
-        <input type="text" [(ngModel)]="captionSearch" placeholder="Image's Title (or part of it..)" />
-        <button (click)="imageService.getImagesByCaption(captionSearch)">Search by Title</button>
-    </div>
-    <div>
-        <input type="text" placeholder="Category..." [(ngModel)]="categorySearch" [matAutocomplete]="auto" />
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let category of categoryService.categories" [value]="category.title">
-                {{ category.title }}
-            </mat-option>
-        </mat-autocomplete>
-        <button (click)="imageService.getImagesByCategory(categorySearch)">Search by Category</button>
+<div class="background">
+    <div class="search-bar">
+        <div class="search-line">
+            <input type="text" [(ngModel)]="captionSearch" placeholder="Title..." />
+            <button class="btn" (click)="imageService.getImagesByCaption(captionSearch)">Search by Title</button>
+        </div>
+        <div class="search-line">
+            <input type="text" placeholder="Category..." [(ngModel)]="categorySearch" [matAutocomplete]="auto" />
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let category of categoryService.categories" [value]="category.title">
+                    {{ category.title }}
+                </mat-option>
+            </mat-autocomplete>
+            <button class="btn" (click)="imageService.getImagesByCategory(categorySearch)">Search by Category</button>
+        </div>
     </div>
     <app-gallery></app-gallery>
 </div>

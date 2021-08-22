@@ -1,4 +1,5 @@
 /* Style reset */
+
 :root {
     --primary: #9B7FB1;
     --primary-light: #C5B4D1;
@@ -17,7 +18,15 @@ body {
 
 /* -------------Elements----------- */
 
+.background {
+    background-image: url('src/assets/images/background-cubes.png');
+    margin-top: 0.2em;
+    background-size: contain;
+    background-repeat: repeat-y;
+}
+
 /* Buttons */
+
 .btn {
     background-color: var(--primary-dark);
     border: 0;
@@ -45,6 +54,7 @@ body {
 }
 
 /* Inputs */
+
 input[type="text"], input[type="password"] {
     font-family: inherit;
     border: none;

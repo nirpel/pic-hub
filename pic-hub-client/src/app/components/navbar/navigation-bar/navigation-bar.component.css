@@ -17,6 +17,7 @@
     margin: 0 10px;
     font-size: 1.6em;
     color: var(--primary-dark);
+    transition-duration: 0.3s;
 }
 
 .navbar-list {
@@ -25,11 +26,23 @@
     right: 0;
 }
 
-.navbar-nav:hover {
-    opacity: 0.8;
+.nav-logo {
+    transition-duration: 0.3s;
+}
+
+.navbar-nav:hover, .nav-logo:hover {
+    opacity: 0.75;
     cursor: pointer;
+}
+
+.navbar-nav:active, .nav-logo:active {
+    opacity: 0.5;
 }
 
 .closed {
     display: none
+}
+
+.nav-selected {
+   color: orange; 
 }

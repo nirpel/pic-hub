@@ -1,0 +1,10 @@
+.menu {
+    background-color: var(--primary);
+    border-radius: 0.4em;
+    padding: 0.3em 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.link-container {
+    margin: 0.2em 0;
+}
