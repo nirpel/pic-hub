@@ -1,0 +1,14 @@
+.add-category-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.add-category-container button {
+    margin-top: 2em;
+}
+
+.add-category-container h1 {
+    color: var(--primary-dark);
+}
