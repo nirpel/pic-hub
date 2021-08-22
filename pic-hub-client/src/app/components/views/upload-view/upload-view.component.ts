@@ -25,10 +25,10 @@ export class UploadViewComponent implements OnInit {
       }, (err) => {
         console.error(err);
       }, () => {
-        this.router.navigate(['']);
+        this.router.navigate(['gallery']);
       });
     } else {
-      this.router.navigate(['']);
+      this.router.navigate(['gallery']);
     }
   }
 }

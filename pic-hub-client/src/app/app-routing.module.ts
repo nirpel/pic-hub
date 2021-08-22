@@ -8,12 +8,12 @@ import { UploadViewComponent } from './components/views/upload-view/upload-view.
 import { WelcomeViewComponent } from './components/views/welcome-view/welcome-view.component';
 
 const routes: Routes = [
-  { path: 'welcome', component: WelcomeViewComponent },
+  { path: '', component: WelcomeViewComponent },
   { path: 'permitions', component: PermitionsViewComponent },
   { path: 'library-details', component: LibraryDetailsViewComponent },
   { path: 'upload', component: UploadViewComponent },
   { path: 'private-mode', component: PrivateModeViewComponent },
-  { path: '', component: AlbumViewComponent },
+  { path: 'gallery', component: AlbumViewComponent },
   { path: '**', redirectTo: '' }
 ];
 

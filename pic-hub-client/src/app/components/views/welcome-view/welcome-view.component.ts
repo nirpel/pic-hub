@@ -13,6 +13,9 @@ export class WelcomeViewComponent implements OnInit {
   constructor(public userService: UserService, public cookieService: CookieService ,private router : Router) { }
 
   ngOnInit(): void {
+    if (this.userService.allowCamera && this.userService.allowLocation && this.userService.allowPrivateMode) {
+      this.router.navigate(['gallery']);
+    }
   }
 
   clickHandler(): void {
