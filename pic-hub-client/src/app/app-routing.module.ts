@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'library-details', component: LibraryDetailsViewComponent },
   { path: 'upload', component: UploadViewComponent },
   { path: 'private-mode', component: PrivateModeViewComponent },
-  { path: '', component: AlbumViewComponent }
+  { path: '', component: AlbumViewComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
