@@ -1,0 +1,50 @@
+.private-mode-view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.private-mode-view input {
+    margin-right: 1em;
+}
+
+.message-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10em;
+    width: 100%;
+    margin-bottom: 4em;
+}
+
+.message-container span {
+    color: var(--primary-dark);
+    font-size: 3em;
+    font-family: Lobster;
+}
+
+.message-container::before {
+    content: "";
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    opacity: 0.15;
+}
+
+.lock-container::before {
+    background-image: url(src/assets/images/lock-close.png);
+}
+
+.unlock-container::before {
+    background-image: url(src/assets/images/lock-open.png);
+}
