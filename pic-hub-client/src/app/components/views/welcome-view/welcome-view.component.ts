@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'src/app/services/cookie.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,12 +10,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class WelcomeViewComponent implements OnInit {
 
-  constructor(public userService: UserService, private router : Router) { }
+  constructor(public userService: UserService, public cookieService: CookieService ,private router : Router) { }
 
   ngOnInit(): void {
   }
 
   clickHandler(): void {
+    this.cookieService.setCookie('permitions', 'accepted');
     this.router.navigate(['library-details']);
   }
 

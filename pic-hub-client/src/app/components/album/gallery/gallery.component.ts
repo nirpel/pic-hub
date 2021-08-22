@@ -12,9 +12,7 @@ export class GalleryComponent implements OnInit {
   constructor(public imageService: ImageService, public albumService: AlbumService) { }
 
   ngOnInit(): void {
+    this.albumService.initViewDisplay();
     this.imageService.getAllImages();
-    console.log(this.albumService.viewDisplay);
-    
   }
-
 }
