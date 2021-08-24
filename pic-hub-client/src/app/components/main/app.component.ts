@@ -9,5 +9,5 @@ import { MenuLinkModel } from 'src/app/models/menu-link';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pic-hub-client';
+  title = 'pichub';
 }
